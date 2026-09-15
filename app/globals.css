@@ -1,26 +1,183 @@
 @import "tailwindcss";
 
+/* ===== Design Tokens ===== */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-gray-light: #f2f2f2;
+  --color-gray-mid: #d4d4d4;
+  --color-gray-dark: #333333;
+  --font-heading: var(--font-bricolage), 'Bricolage Grotesque', sans-serif;
+  --font-body: var(--font-inter), 'Inter', sans-serif;
+  --shadow-hard: 8px 8px 0px 0px rgba(0, 0, 0, 1);
+  --shadow-hard-lg: 12px 12px 0px 0px rgba(0, 0, 0, 1);
+  --border-thick: 4px solid #000000;
+  --border-extra: 8px solid #000000;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ===== Reset & Base ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  background-color: var(--color-white);
+  color: var(--color-black);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  line-height: 1.05;
+}
+
+/* ===== Section Dividers (comic-panel grid lines) ===== */
+.section-divider {
+  border-bottom: 2px solid var(--color-black);
+}
+
+/* ===== Asymmetric Border Radius Utilities ===== */
+.radius-quirky {
+  border-radius: 4px 24px 4px 24px;
+}
+
+.radius-quirky-alt {
+  border-radius: 24px 4px 24px 4px;
+}
+
+/* ===== Hard Shadow Utilities ===== */
+.shadow-hard {
+  box-shadow: var(--shadow-hard);
+}
+
+.shadow-hard-lg {
+  box-shadow: var(--shadow-hard-lg);
+}
+
+.shadow-hard-hover:hover {
+  box-shadow: var(--shadow-hard-lg);
+  transform: translate(-2px, -2px);
+}
+
+/* ===== Marquee Animation ===== */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+/* ===== Pill Hover Effect ===== */
+.pill-tag {
+  border: 3px solid var(--color-black);
+  padding: 10px 24px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  background: var(--color-white);
+  color: var(--color-black);
+  cursor: default;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+}
+
+.pill-tag:hover {
+  background: var(--color-black);
+  color: var(--color-white);
+  transform: translateY(-6px);
+  box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
+}
+
+/* ===== Button Styles ===== */
+.btn-brutal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 16px 40px;
+  background: var(--color-black);
+  color: var(--color-white);
+  border: 4px solid var(--color-black);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: var(--shadow-hard);
+  text-decoration: none;
+}
+
+.btn-brutal:hover {
+  background: var(--color-white);
+  color: var(--color-black);
+  box-shadow: var(--shadow-hard-lg);
+  transform: translate(-4px, -4px);
+}
+
+.btn-brutal:active {
+  box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 1);
+  transform: translate(2px, 2px);
+}
+
+/* ===== Project Card ===== */
+.project-card {
+  border: 4px solid var(--color-black);
+  background: var(--color-white);
+  transition: all 0.2s ease;
+  overflow: hidden;
+}
+
+.project-card:hover {
+  box-shadow: var(--shadow-hard-lg);
+  transform: translate(-4px, -4px);
+}
+
+/* ===== Responsive Container ===== */
+.container-brutal {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (min-width: 768px) {
+  .container-brutal {
+    padding: 0 48px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-brutal {
+    padding: 0 64px;
+  }
+}
+
+/* ===== Scrollbar Styling ===== */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-white);
+  border-left: 2px solid var(--color-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-black);
+  border: 2px solid var(--color-white);
 }
