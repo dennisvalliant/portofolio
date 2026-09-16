@@ -8,7 +8,7 @@ export default function Contact() {
     <section
       id="contact"
       style={{
-        padding: "100px 24px 60px",
+        padding: "80px 0 40px",
         backgroundColor: "var(--color-black)",
         color: "var(--color-white)",
         position: "relative",
@@ -26,7 +26,7 @@ export default function Contact() {
             display: "inline-block",
             border: "4px solid var(--color-white)",
             padding: "8px 24px",
-            marginBottom: 40,
+            marginBottom: 32,
             backgroundColor: "var(--color-white)",
             color: "var(--color-black)",
             fontFamily: "var(--font-heading)",
@@ -64,13 +64,13 @@ export default function Contact() {
           style={{
             display: "block",
             fontFamily: "var(--font-heading)",
-            fontSize: "clamp(1.2rem, 5vw, 3.5rem)",
+            fontSize: "clamp(1.1rem, 4.5vw, 3rem)",
             fontWeight: 800,
             color: "var(--color-white)",
             textDecoration: "none",
             borderBottom: "4px solid var(--color-white)",
-            paddingBottom: 24,
-            marginBottom: 40,
+            paddingBottom: 20,
+            marginBottom: 36,
             wordBreak: "break-all",
             transition: "color 0.2s ease",
             lineHeight: 1.2,
@@ -88,8 +88,8 @@ export default function Contact() {
           style={{
             display: "flex",
             flexWrap: "wrap",
-            gap: 40,
-            marginBottom: 60,
+            gap: 24,
+            marginBottom: 48,
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
@@ -97,7 +97,7 @@ export default function Contact() {
             <span
               style={{
                 fontFamily: "var(--font-heading)",
-                fontSize: "1.1rem",
+                fontSize: "1rem",
                 fontWeight: 600,
               }}
             >
@@ -110,7 +110,7 @@ export default function Contact() {
             <span
               style={{
                 fontFamily: "var(--font-heading)",
-                fontSize: "1.1rem",
+                fontSize: "1rem",
                 fontWeight: 600,
               }}
             >
@@ -123,8 +123,9 @@ export default function Contact() {
             <span
               style={{
                 fontFamily: "var(--font-heading)",
-                fontSize: "1.1rem",
+                fontSize: "1rem",
                 fontWeight: 600,
+                wordBreak: "break-all",
               }}
             >
               valliantdennis@gmail.com
@@ -140,8 +141,9 @@ export default function Contact() {
           transition={{ duration: 0.5, delay: 0.4 }}
           style={{
             display: "flex",
-            gap: 20,
-            marginBottom: 60,
+            flexWrap: "wrap",
+            gap: 16,
+            marginBottom: 48,
           }}
         >
           <a
@@ -152,16 +154,18 @@ export default function Contact() {
             style={{
               display: "inline-flex",
               alignItems: "center",
+              justifyContent: "center",
               gap: 12,
-              padding: "16px 32px",
+              padding: "14px 28px",
               border: "4px solid var(--color-white)",
               color: "var(--color-white)",
               textDecoration: "none",
               fontFamily: "var(--font-heading)",
               fontWeight: 700,
-              fontSize: "1.1rem",
+              fontSize: "1rem",
               transition: "all 0.15s ease",
               boxShadow: "6px 6px 0 0 rgba(255,255,255,0.3)",
+              flex: "1 1 160px",
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor = "var(--color-white)";
@@ -176,7 +180,7 @@ export default function Contact() {
               e.currentTarget.style.boxShadow = "6px 6px 0 0 rgba(255,255,255,0.3)";
             }}
           >
-            <FaLinkedin size={28} />
+            <FaLinkedin size={24} />
             LinkedIn
           </a>
 
@@ -188,16 +192,18 @@ export default function Contact() {
             style={{
               display: "inline-flex",
               alignItems: "center",
+              justifyContent: "center",
               gap: 12,
-              padding: "16px 32px",
+              padding: "14px 28px",
               border: "4px solid var(--color-white)",
               color: "var(--color-white)",
               textDecoration: "none",
               fontFamily: "var(--font-heading)",
               fontWeight: 700,
-              fontSize: "1.1rem",
+              fontSize: "1rem",
               transition: "all 0.15s ease",
               boxShadow: "6px 6px 0 0 rgba(255,255,255,0.3)",
+              flex: "1 1 160px",
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor = "var(--color-white)";
@@ -212,7 +218,7 @@ export default function Contact() {
               e.currentTarget.style.boxShadow = "6px 6px 0 0 rgba(255,255,255,0.3)";
             }}
           >
-            <FaGithub size={28} />
+            <FaGithub size={24} />
             GitHub
           </a>
         </motion.div>

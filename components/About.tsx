@@ -9,7 +9,7 @@ export default function About() {
       id="about"
       className="section-divider"
       style={{
-        padding: "100px 24px",
+        padding: "80px 0",
         position: "relative",
       }}
     >
@@ -24,7 +24,7 @@ export default function About() {
             display: "inline-block",
             border: "4px solid var(--color-black)",
             padding: "8px 24px",
-            marginBottom: 40,
+            marginBottom: 32,
             backgroundColor: "var(--color-black)",
             color: "var(--color-white)",
             fontFamily: "var(--font-heading)",
@@ -44,8 +44,8 @@ export default function About() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, delay: 0.1 }}
           style={{
-            fontSize: "clamp(2.5rem, 8vw, 6rem)",
-            marginBottom: 48,
+            fontSize: "clamp(2.2rem, 7vw, 5.5rem)",
+            marginBottom: 40,
             lineHeight: 1,
           }}
         >
@@ -56,9 +56,10 @@ export default function About() {
         <div
           style={{
             display: "flex",
-            gap: 40,
+            gap: 32,
             alignItems: "stretch",
             flexWrap: "wrap",
+            justifyContent: "center",
           }}
         >
           {/* Profile Photo */}
@@ -69,7 +70,8 @@ export default function About() {
             transition={{ duration: 0.5, delay: 0.15 }}
             className="radius-quirky"
             style={{
-              width: 280,
+              width: "100%",
+              maxWidth: 280,
               height: 340,
               border: "4px solid var(--color-black)",
               boxShadow: "var(--shadow-hard)",
@@ -84,7 +86,7 @@ export default function About() {
               alt="Dennis Valliant"
               fill
               style={{ objectFit: "cover", objectPosition: "top" }}
-              sizes="280px"
+              sizes="(max-width: 640px) 280px, 280px"
               priority
             />
           </motion.div>
@@ -99,28 +101,29 @@ export default function About() {
             style={{
               border: "4px solid var(--color-black)",
               backgroundColor: "var(--color-gray-light)",
-              padding: "clamp(32px, 5vw, 64px)",
-              flex: "1 1 400px",
+              padding: "clamp(20px, 4vw, 48px)",
+              flex: "1 1 300px",
               boxShadow: "var(--shadow-hard)",
               position: "relative",
+              overflow: "hidden",
             }}
           >
             {/* Decorative corner element */}
             <div
               style={{
                 position: "absolute",
-                top: -16,
-                right: -16,
-                width: 48,
-                height: 48,
+                top: 0,
+                right: 0,
+                width: 36,
+                height: 36,
                 backgroundColor: "var(--color-black)",
-                borderRadius: "0 0 0 24px",
+                borderRadius: "0 0 0 20px",
               }}
             />
 
             <p
               style={{
-                fontSize: "clamp(1rem, 2vw, 1.2rem)",
+                fontSize: "clamp(0.95rem, 2vw, 1.15rem)",
                 lineHeight: 1.8,
                 color: "var(--color-gray-dark)",
                 margin: 0,
@@ -134,7 +137,7 @@ export default function About() {
             <br />
             <p
               style={{
-                fontSize: "clamp(1rem, 2vw, 1.2rem)",
+                fontSize: "clamp(0.95rem, 2vw, 1.15rem)",
                 lineHeight: 1.8,
                 color: "var(--color-gray-dark)",
                 margin: 0,

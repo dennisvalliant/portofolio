@@ -1,6 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import { useActiveSection } from "@/hooks/useActiveSection";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 const NAV_LINKS = [
   { id: "home", label: "Home" },
@@ -12,9 +14,11 @@ const NAV_LINKS = [
 
 export default function Navbar() {
   const activeSection = useActiveSection();
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
+    setIsOpen(false);
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
@@ -38,7 +42,7 @@ export default function Navbar() {
           justifyContent: "space-between",
           maxWidth: 1280,
           margin: "0 auto",
-          padding: "0 24px",
+          padding: "0 16px",
         }}
       >
         {/* Logo */}
@@ -57,13 +61,8 @@ export default function Navbar() {
           DV.
         </a>
 
-        {/* Nav Links */}
-        <div
-          style={{
-            display: "flex",
-            gap: 0,
-          }}
-        >
+        {/* Desktop Nav Links */}
+        <div className="hidden md:flex" style={{ gap: 0 }}>
           {NAV_LINKS.map((link) => {
             const isActive = activeSection === link.id;
             return (
@@ -90,7 +89,61 @@ export default function Navbar() {
             );
           })}
         </div>
+
+        {/* Mobile Hamburger Button */}
+        <button
+          className="flex md:hidden"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle navigation menu"
+          style={{
+            background: "none",
+            border: "3px solid var(--color-black)",
+            padding: "8px 12px",
+            cursor: "pointer",
+            color: "var(--color-black)",
+            fontSize: "1.2rem",
+            boxShadow: "3px 3px 0 0 var(--color-black)",
+          }}
+        >
+          {isOpen ? <FaTimes /> : <FaBars />}
+        </button>
       </div>
+
+      {/* Mobile Drawer Menu */}
+      {isOpen && (
+        <div
+          className="flex md:hidden flex-col"
+          style={{
+            backgroundColor: "var(--color-white)",
+            borderTop: "3px solid var(--color-black)",
+          }}
+        >
+          {NAV_LINKS.map((link) => {
+            const isActive = activeSection === link.id;
+            return (
+              <a
+                key={link.id}
+                href={`#${link.id}`}
+                onClick={(e) => handleClick(e, link.id)}
+                style={{
+                  fontFamily: "var(--font-heading)",
+                  fontWeight: 700,
+                  fontSize: "1.1rem",
+                  textDecoration: "none",
+                  padding: "16px 20px",
+                  color: isActive ? "var(--color-white)" : "var(--color-black)",
+                  backgroundColor: isActive ? "var(--color-black)" : "transparent",
+                  borderBottom: "2px solid var(--color-black)",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.05em",
+                }}
+              >
+                {link.label}
+              </a>
+            );
+          })}
+        </div>
+      )}
     </nav>
   );
 }

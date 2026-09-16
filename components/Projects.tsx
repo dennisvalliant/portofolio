@@ -69,7 +69,7 @@ export default function Projects() {
       id="projects"
       className="section-divider"
       style={{
-        padding: "100px 24px",
+        padding: "80px 0",
       }}
     >
       <div className="container-brutal">
@@ -83,7 +83,7 @@ export default function Projects() {
             display: "inline-block",
             border: "4px solid var(--color-black)",
             padding: "8px 24px",
-            marginBottom: 40,
+            marginBottom: 32,
             backgroundColor: "var(--color-black)",
             color: "var(--color-white)",
             fontFamily: "var(--font-heading)",
@@ -103,8 +103,8 @@ export default function Projects() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, delay: 0.1 }}
           style={{
-            fontSize: "clamp(2.5rem, 8vw, 6rem)",
-            marginBottom: 56,
+            fontSize: "clamp(2.2rem, 7vw, 5.5rem)",
+            marginBottom: 40,
             lineHeight: 1,
           }}
         >
@@ -115,8 +115,8 @@ export default function Projects() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 500px), 1fr))",
-            gap: 32,
+            gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 450px), 1fr))",
+            gap: 24,
           }}
         >
           {PROJECTS.map((project, idx) => (
@@ -132,7 +132,7 @@ export default function Projects() {
               <div
                 style={{
                   width: "100%",
-                  height: 220,
+                  height: 200,
                   backgroundColor: "var(--color-gray-mid)",
                   borderBottom: "4px solid var(--color-black)",
                   position: "relative",
@@ -149,7 +149,7 @@ export default function Projects() {
               </div>
 
               {/* Card body */}
-              <div style={{ padding: "24px 28px 28px" }}>
+              <div style={{ padding: "20px 20px 24px" }}>
                 {/* Role badge */}
                 <span
                   style={{
@@ -171,7 +171,7 @@ export default function Projects() {
                 <h3
                   style={{
                     fontFamily: "var(--font-heading)",
-                    fontSize: "clamp(1.5rem, 3vw, 2rem)",
+                    fontSize: "clamp(1.4rem, 3vw, 2rem)",
                     fontWeight: 800,
                     marginBottom: 12,
                     lineHeight: 1.1,
@@ -237,9 +237,8 @@ export default function Projects() {
                         className="btn-brutal radius-quirky"
                         style={{
                           fontSize: "0.8rem",
-                          padding: "10px 20px",
-                          flex: 1,
-                          minWidth: 140,
+                          padding: "10px 16px",
+                          flex: "1 1 130px",
                           textAlign: "center",
                         }}
                       >

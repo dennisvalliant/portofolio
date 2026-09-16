@@ -14,13 +14,13 @@ export default function Hero() {
       id="home"
       className="section-divider"
       style={{
-        minHeight: "100vh",
+        minHeight: "calc(100vh - 70px)",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         position: "relative",
         overflow: "hidden",
-        padding: "120px 24px 0",
+        padding: "60px 0",
       }}
     >
       <div className="container-brutal" style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center" }}>
@@ -32,9 +32,9 @@ export default function Hero() {
           style={{
             position: "absolute",
             top: "10%",
-            right: "-5%",
+            right: 0,
             fontFamily: "var(--font-heading)",
-            fontSize: "clamp(8rem, 20vw, 22rem)",
+            fontSize: "clamp(4rem, 16vw, 20rem)",
             fontWeight: 800,
             color: "var(--color-gray-light)",
             lineHeight: 0.9,
@@ -46,7 +46,7 @@ export default function Hero() {
           DEV
         </motion.div>
 
-        <div style={{ position: "relative", zIndex: 1 }}>
+        <div style={{ position: "relative", zIndex: 1, padding: "20px 0" }}>
           {/* Sub-headline */}
           <motion.p
             initial={{ opacity: 0, x: -30 }}
@@ -54,15 +54,16 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             style={{
               fontFamily: "var(--font-heading)",
-              fontSize: "clamp(0.9rem, 2vw, 1.2rem)",
+              fontSize: "clamp(0.75rem, 2vw, 1.1rem)",
               fontWeight: 600,
               textTransform: "uppercase",
-              letterSpacing: "0.15em",
+              letterSpacing: "0.1em",
               marginBottom: 16,
-              padding: "8px 20px",
+              padding: "8px 14px",
               border: "3px solid var(--color-black)",
               display: "inline-block",
               backgroundColor: "var(--color-white)",
+              maxWidth: "100%",
             }}
           >
             Computer Science Student | Focusing on Fullstack Development & API Integration | Continuous Learner
@@ -74,10 +75,10 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             style={{
-              fontSize: "clamp(3rem, 10vw, 8rem)",
+              fontSize: "clamp(2.2rem, 9vw, 7.5rem)",
               fontWeight: 800,
               lineHeight: 0.95,
-              margin: "16px 0 32px",
+              margin: "16px 0 28px",
             }}
           >
             Hi, I&apos;m
@@ -87,8 +88,10 @@ export default function Hero() {
                 display: "inline-block",
                 backgroundColor: "var(--color-black)",
                 color: "var(--color-white)",
-                padding: "4px 24px",
+                padding: "4px 16px",
                 marginTop: 8,
+                maxWidth: "100%",
+                wordBreak: "break-word",
               }}
             >
               Dennis Valliant
@@ -101,10 +104,10 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
             style={{
-              fontSize: "clamp(1rem, 2vw, 1.25rem)",
+              fontSize: "clamp(0.95rem, 2vw, 1.25rem)",
               maxWidth: 650,
               lineHeight: 1.7,
-              marginBottom: 40,
+              marginBottom: 36,
               color: "var(--color-gray-dark)",
             }}
           >
@@ -120,7 +123,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.4, delay: 0.8 }}
-            style={{ fontSize: "1.3rem", padding: "20px 48px" }}
+            style={{ fontSize: "clamp(1rem, 2.5vw, 1.25rem)", padding: "16px 36px" }}
           >
             View Projects ↓
           </motion.a>
