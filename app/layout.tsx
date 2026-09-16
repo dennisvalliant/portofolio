@@ -38,7 +38,7 @@ export default function RootLayout({
         }}
       >
         <Navbar />
-        <main>{children}</main>
+        <main style={{ paddingTop: "65px" }}>{children}</main>
       </body>
     </html>
   );

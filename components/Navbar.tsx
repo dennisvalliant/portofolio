@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { FaBars, FaTimes } from "react-icons/fa";
 
@@ -15,27 +15,47 @@ const NAV_LINKS = [
 export default function Navbar() {
   const activeSection = useActiveSection();
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     setIsOpen(false);
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+      const navHeight = 65;
+      const elementPosition = el.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - navHeight;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
     }
   };
 
   return (
-    <nav
+    <header
       style={{
-        position: "sticky",
+        position: "fixed",
         top: 0,
-        zIndex: 100,
+        left: 0,
+        right: 0,
+        width: "100%",
+        zIndex: 1000,
         backgroundColor: "var(--color-white)",
         borderBottom: "4px solid var(--color-black)",
+        boxShadow: isScrolled ? "0 4px 12px rgba(0, 0, 0, 0.15)" : "none",
+        transition: "box-shadow 0.2s ease",
       }}
     >
-      <div
+      <nav
         style={{
           display: "flex",
           alignItems: "center",
@@ -107,7 +127,7 @@ export default function Navbar() {
         >
           {isOpen ? <FaTimes /> : <FaBars />}
         </button>
-      </div>
+      </nav>
 
       {/* Mobile Drawer Menu */}
       {isOpen && (
@@ -116,6 +136,8 @@ export default function Navbar() {
           style={{
             backgroundColor: "var(--color-white)",
             borderTop: "3px solid var(--color-black)",
+            maxHeight: "calc(100vh - 65px)",
+            overflowY: "auto",
           }}
         >
           {NAV_LINKS.map((link) => {
@@ -144,6 +166,7 @@ export default function Navbar() {
           })}
         </div>
       )}
-    </nav>
+    </header>
   );
 }
+
