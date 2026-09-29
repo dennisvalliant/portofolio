@@ -36,7 +36,7 @@ const PROJECTS: Project[] = [
       "Digital marketplace connecting customers with trusted local laundry merchants, offering seamless pickup and delivery services. Acting as Backend Developer for this MVP, I owned the API, database schema, and core business logic.",
     tech: ["React", "PostgreSQL", "Tailwind CSS", "Prisma", "Supabase", "Node.js", "Express.js"],
     role: "Backend Developer",
-    image: "/klean.png",
+    image: "/klean-1.png",
     links: [
       { label: "Backend Repo", url: "https://github.com/dennisvalliant/klean-be" },
       { label: "Frontend Repo", url: "https://github.com/dennisvalliant/klean-fe" },
@@ -49,8 +49,11 @@ const PROJECTS: Project[] = [
       "AI-powered waste classification platform providing instant waste classification. Built the MVP's server-side architecture (image upload API) and trained/integrated a Convolutional Neural Network (CNN) from scratch.",
     tech: ["React", "Node.js", "Express.js", "Mongoose", "MongoDB"],
     role: "Backend Developer & ML Engineer",
-    image: "/bersihin.png",
-    links: [],
+    image: "/bersih-in.png",
+    links: [
+      { label: "GitHub Repo", url: "https://github.com/dennisvalliant/bersih-in" },
+      { label: "Live App", url: "https://bersih-in-ai.vercel.app/" },
+    ],
   },
   {
     title: "Mr. Coffee",
@@ -58,8 +61,10 @@ const PROJECTS: Project[] = [
       "A modern, responsive website for a premium coffee chain featuring an online ordering system, interactive menu, and loyalty rewards program.",
     tech: ["HTML5", "CSS3", "Vanilla JavaScript", "Figma"],
     role: "Frontend Developer",
-    image: "/mrcoffee.png",
-    links: [],
+    image: "/mrcoffee-logo.jpeg",
+    links: [
+      { label: "GitHub Repo", url: "https://github.com/dennisvalliant/mrcoffee" },
+    ],
   },
 ];
 
@@ -132,8 +137,8 @@ export default function Projects() {
               <div
                 style={{
                   width: "100%",
-                  height: 200,
-                  backgroundColor: "var(--color-gray-mid)",
+                  height: 260,
+                  backgroundColor: "var(--color-gray-light)",
                   borderBottom: "4px solid var(--color-black)",
                   position: "relative",
                   overflow: "hidden",
